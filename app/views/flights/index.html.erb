@@ -1,0 +1,105 @@
+<form action="/flights/select" method="post">
+  <div class="row bg-primary text-white">
+    <div class="col my-2">
+      <h3>Where and when do you want to travel?</h3>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col my-2">
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1" checked="checked">
+        <label class="form-check-label" for="inlineRadio1">Oneway</label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+        <label class="form-check-label" for="inlineRadio2">Roundtrip</label>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <label for="exampleInputEmail1">From:</label>
+      <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+    </div>
+    <div class="col">
+      <label for="exampleInputEmail1">To:</label>
+      <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+    </div>
+  </div>
+  <div class="row">
+    <div class="col form-inline my-3">
+      <label for="exampleInputEmail1">Departure Date:</label>
+      <input type="email" class="form-control mx-2" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+      <select class="form-control ml-2">
+        <option>Anytime</option>
+      </select>
+    </div>
+    <div class="col form-inline my-3">
+      <label for="exampleInputEmail1">Departure Date:</label>
+      <input type="email" class="form-control mx-2" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+      <select class="form-control ml-2">
+        <option>Anytime</option>
+      </select>
+    </div>
+  </div>
+  <div class="row bg-primary text-white">
+    <div class="col my-2">
+      <h3>Who is going on this trip?</h3>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col form-inline my-3 align-top">
+      <label class="" for="inlineFormInputName2">Adult<br />(above 12 years):</label>
+      <select class="form-control ml-2">
+        <option>0</option>
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+        <option>4</option>
+        <option>5</option>
+        <option>6</option>
+      </select>
+    </div>
+    <div class="col form-inline align-top">
+      <label class="" for="inlineFormInputName2">Children<br />(2-11 years):</label>
+      <select class="form-control ml-2">
+        <option>0</option>
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+      </select>
+    </div>
+    <div class="col form-inline align-top">
+      <label class="" for="inlineFormInputName2">Infants/No Seat<br />(Under 2 years):</label>
+      <select class="form-control ml-2">
+        <option>0</option>
+        <option>1</option>
+      </select>
+    </div>
+  </div>
+  <div class="row bg-primary text-white">
+    <div class="col my-2">
+      <h3>Do you have any special preferences?</h3>
+    </div>
+  </div>
+  <div class="row my-3">
+    <div class="col form-inline">
+      <label class="" for="inlineFormInputName2">Classes of Service:</label>
+      <select class="form-control ml-2">
+        <option>First</option>
+        <option>Business</option>
+        <option>Premium Economy</option>
+        <option>Economy</option>
+      </select>
+    </div>
+    <div class="col form-inline">
+      <label class="" for="inlineFormInputName2">Flight Type:</label>
+      <select class="form-control ml-2">
+        <option>Direct</option>
+        <option>Direct and Connecting</option>
+      </select>
+    </div>
+  </div>
+
+  <button type="submit" class="btn btn-success float-right">Search Now</button>
+</form>
