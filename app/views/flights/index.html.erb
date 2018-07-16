@@ -1,4 +1,4 @@
-<form action="/flights/select" method="post">
+<%= form_tag '/flights/select' do %>
   <div class="row bg-primary text-white">
     <div class="col my-2">
       <h3>Where and when do you want to travel?</h3>
@@ -7,39 +7,39 @@
   <div class="row">
     <div class="col my-2">
       <div class="form-check form-check-inline">
-        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1" checked="checked">
-        <label class="form-check-label" for="inlineRadio1">Oneway</label>
+        <%= radio_button_tag 'trip_type', 'one_way', true, class: 'form-check-input', id: 'tripType1' %>
+        <%= label_tag 'tripType1', 'Oneway', class: 'form-check-label' %>
       </div>
       <div class="form-check form-check-inline">
-        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
-        <label class="form-check-label" for="inlineRadio2">Roundtrip</label>
+        <%= radio_button_tag 'trip_type', 'round_trip', false, class: 'form-check-input', id: 'tripType2' %>
+        <%= label_tag 'tripType2', 'Roundtrip', class: 'form-check-label' %>
       </div>
     </div>
   </div>
   <div class="row">
     <div class="col">
-      <label for="exampleInputEmail1">From:</label>
-      <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+      <%= label_tag 'departure_from', 'From:' %>
+      <%= text_field_tag 'departure_from', nil, class: 'form-control' %>
     </div>
     <div class="col">
-      <label for="exampleInputEmail1">To:</label>
-      <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+      <%= label_tag 'departure_to', 'To:' %>
+      <%= text_field_tag 'departure_to', nil, class: 'form-control' %>
     </div>
   </div>
   <div class="row">
-    <div class="col form-inline my-3">
-      <label for="exampleInputEmail1">Departure Date:</label>
-      <input type="email" class="form-control mx-2" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-      <select class="form-control ml-2">
-        <option>Anytime</option>
-      </select>
+    <div class="col my-3">
+      <%= label_tag 'departure_date', 'Departure Date:' %>
+      <div class="form-inline">
+        <%= text_field_tag 'departure_date', nil, class: 'form-control mx-2' %>
+        <%= select_tag 'departure_time', options_for_select(departure_time_options), class: 'form-control ml-auto' %>
+      </div>
     </div>
-    <div class="col form-inline my-3">
-      <label for="exampleInputEmail1">Departure Date:</label>
-      <input type="email" class="form-control mx-2" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-      <select class="form-control ml-2">
-        <option>Anytime</option>
-      </select>
+    <div class="col my-3">
+      <%= label_tag 'return_date', 'Return Date:' %>
+      <div class="form-inline">
+        <%= text_field_tag 'return_date', nil, class: 'form-control mx-2' %>
+        <%= select_tag 'return_time', options_for_select(departure_time_options), class: 'form-control ml-auto' %>
+      </div>
     </div>
   </div>
   <div class="row bg-primary text-white">
@@ -49,32 +49,16 @@
   </div>
   <div class="row">
     <div class="col form-inline my-3 align-top">
-      <label class="" for="inlineFormInputName2">Adult<br />(above 12 years):</label>
-      <select class="form-control ml-2">
-        <option>0</option>
-        <option>1</option>
-        <option>2</option>
-        <option>3</option>
-        <option>4</option>
-        <option>5</option>
-        <option>6</option>
-      </select>
+      <%= label_tag 'pax_adult', raw('Adult<br />(above 12 years):') %>
+      <%= select_tag 'pax_adult', options_for_select(pax_options(0,6), 1), class: 'form-control ml-auto' %>
     </div>
     <div class="col form-inline align-top">
-      <label class="" for="inlineFormInputName2">Children<br />(2-11 years):</label>
-      <select class="form-control ml-2">
-        <option>0</option>
-        <option>1</option>
-        <option>2</option>
-        <option>3</option>
-      </select>
+      <%= label_tag 'pax_child', raw('Children<br />(2-11 years):') %>
+      <%= select_tag 'pax_child', options_for_select(pax_options(0,3)), class: 'form-control ml-auto' %>
     </div>
     <div class="col form-inline align-top">
-      <label class="" for="inlineFormInputName2">Infants/No Seat<br />(Under 2 years):</label>
-      <select class="form-control ml-2">
-        <option>0</option>
-        <option>1</option>
-      </select>
+      <%= label_tag 'pax_infant', raw('Infants/No Seat<br />(Under 2 years):') %>
+      <%= select_tag 'pax_infant', options_for_select(pax_options(0,1)), class: 'form-control ml-auto' %>
     </div>
   </div>
   <div class="row bg-primary text-white">
@@ -84,22 +68,15 @@
   </div>
   <div class="row my-3">
     <div class="col form-inline">
-      <label class="" for="inlineFormInputName2">Classes of Service:</label>
-      <select class="form-control ml-2">
-        <option>First</option>
-        <option>Business</option>
-        <option>Premium Economy</option>
-        <option>Economy</option>
-      </select>
+      <%= label_tag 'service_class', raw('Classes of Service:') %>
+      <%= select_tag 'service_class', options_for_select(service_class_options, 'Y'), class: 'form-control ml-2' %>
     </div>
     <div class="col form-inline">
-      <label class="" for="inlineFormInputName2">Flight Type:</label>
-      <select class="form-control ml-2">
-        <option>Direct</option>
-        <option>Direct and Connecting</option>
-      </select>
+      <!-- flight_type_options -->
+      <%= label_tag 'service_class', raw('Flight Type:') %>
+      <%= select_tag 'service_class', options_for_select(flight_type_options, '2'), class: 'form-control ml-2' %>
     </div>
   </div>
 
   <button type="submit" class="btn btn-success float-right">Search Now</button>
-</form>
+<% end %>

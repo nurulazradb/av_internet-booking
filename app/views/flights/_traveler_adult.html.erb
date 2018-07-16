@@ -1,0 +1,65 @@
+<div class="row my-3">
+  <div class="col">
+    <span class="text-primary">Traveler Details (* indicate required field) <%= adult %> - Adult</span>
+  </div>
+</div>
+<div class="row my-3">
+  <div class="col-2">
+    <%= label_tag "adult_title_#{adult}", raw('<span class="text-danger">*</span> Title:') %>
+    <%= select_tag "adult_title_#{adult}", options_for_select(title_options), class: 'form-control' %>
+  </div>
+  <div class="col">
+    <%= label_tag "adult_firstname_#{adult}", raw('<span class="text-danger">*</span> First Name:') %>
+    <%= text_field_tag "adult_firstname_#{adult}", nil, class: 'form-control' %>
+  </div>
+  <div class="col">
+    <%= label_tag "adult_lastname_#{adult}", raw('<span class="text-danger">*</span> Last Name (Surname):') %>
+    <%= text_field_tag "adult_lastname_#{adult}", nil, class: 'form-control' %>
+  </div>
+</div>
+<div class="row my-3">
+  <div class="col-2">
+    <%= label_tag "adult_gender_#{adult}", raw('<span class="text-danger">*</span> Gender:') %>
+    <%= select_tag "adult_gender_#{adult}", options_for_select(gender_options), class: 'form-control' %>
+  </div>
+  <div class="col">
+    <%= label_tag "adult_dob_#{adult}", raw('<span class="text-danger">*</span> Date of Birth:') %>
+    <div class="form-inline">
+      <%= text_field_tag "adult_dob_#{adult}", nil, class: 'form-control mr-3' %>
+      image
+    </div>
+  </div>
+  <div class="col">
+    <%= label_tag "adult_national_#{adult}", raw('<span class="text-danger">*</span> Nationality:') %>
+    <%= text_field_tag "adult_national_#{adult}", nil, class: 'form-control' %>
+  </div>
+</div>
+<% if adult == 1 %>
+<div class="row my-3">
+  <div class="col">
+    <%= label_tag 'adult_email_1', raw('<span class="text-danger">*</span> Email Address:') %>
+    <%= text_field_tag 'adult_email_1', nil, class: 'form-control' %>
+    <small id="emailHelpBlock" class="form-text text-muted">Use comma with no space for multiple
+email addresses.</small>
+  </div>
+  <div class="col">
+    <%= label_tag 'adult_mobile_1', raw('<span class="text-danger">*</span> Mobile:') %>
+    <div class="form-inline">
+      <%= text_field_tag 'adult_mobilecountrycode_1', nil, class: 'form-control col-md-2 mr-2' %>
+      <%= text_field_tag 'adult_mobileoperatorcode_1', nil, class: 'form-control col-md-2 mr-2' %>
+      <%= text_field_tag 'adult_mobileno_1', nil, class: 'form-control col-md-4' %>
+    </div>
+    <small id="emailHelpBlock" class="form-text text-muted">country code, operator code, mobile number</small>
+  </div>
+</div>
+<% end %>
+<div class="row my-3">
+  <div class="col">
+    <%= label_tag "adult_fftype_#{adult}", 'Frequent Flyer Type:' %>
+    <%= text_field_tag "adult_fftype_#{adult}", nil, class: 'form-control' %>
+  </div>
+  <div class="col">
+    <%= label_tag "adult_ffno_#{adult}", 'Frequent Flyer No.:' %>
+    <%= text_field_tag "adult_ffno_#{adult}", nil, class: 'form-control' %>
+  </div>
+</div>

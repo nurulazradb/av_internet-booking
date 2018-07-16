@@ -1,0 +1,107 @@
+<h1>Select Flight</h1>
+
+<!-- <span class="text-monospace" style="font-size: 0.8em"><%= params.inspect %></span> -->
+
+<h2>Kuala Lumpur (KUL) to Penang (PEN)</h2>
+<h3>Friday, 27 July 2018 &mdash; Monday, 30 July 2018</h3>
+
+<% for i in 1..5 do %>
+<div class="row border mb-3">
+  <div class="col-md-8 py-3">
+
+    <div class="row">
+      <div class="col-md-11 offset-md-1">
+        DEPART on Friday, 27 July 2018
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-1">
+        logo
+      </div>
+      <div class="col-md-4">
+        Kuala Lumpur<br />
+        KUL 08:20 AM &rarr;
+      </div>
+      <div class="col-md-4">
+        Penang<br />
+        PEN 09:20 AM
+      </div>
+      <div class="col-md-3">
+        Direct: 1h 0m
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-11 offset-md-1">
+        <p>Kuala Lumpur to Penang
+        Malindo Airways Sdn Bhd 2012 operated by Malindo Airways Sdn Bhd<br />
+        Economy (X)</p>
+        <br />
+        <p><a href="#" class="btn btn-outline-primary">Show Flight Details</a></p>
+
+        <div class="flight-details">
+          <p><strong>Kuala Lumpur (Kuala Lumpur Int Airport) to Penang (Penang Intl Airport)</strong><br />
+          Economy (X), Boeing 737-800 (738)<br />
+          Depart: 08:20 AM Friday, 27 July 2018<br />
+          Arrive: 09:20 AM Friday, 27 July 2018<br />
+          Duration: 1h 0m</p>
+          <p class="font-weight-bold">Total trip time: 1h 0m</p>
+        </div>
+      </div>
+    </div>
+
+    <% if params[:trip_type] == 'round_trip' %>
+      <hr>
+
+      <div class="row">
+        <div class="col-md-11 offset-md-1">
+          RETURN on Monday, 30 July 2018
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-1">
+          logo
+        </div>
+        <div class="col-md-4">
+          Penang<br />
+          PEN 06:25 AM
+        </div>
+        <div class="col-md-4">
+          Kuala Lumpur<br />
+          KUL 07:25 AM &rarr;
+        </div>
+        <div class="col-md-3">
+          Direct: 1h 0m
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-11 offset-md-1">
+          <p>Penang to Kuala Lumpur
+          Malindo Airways Sdn Bhd 2012 operated by Malindo Airways Sdn Bhd<br />
+          Economy (V)</p>
+          <br />
+          <p><a href="#" class="btn btn-outline-primary">Show Flight Details</a></p>
+
+          <div class="flight-details">
+            <p><strong>Penang (Penang Intl Airport) to Kuala Lumpur (Kuala Lumpur Int Airport)</strong><br />
+            Economy (X), Boeing 737-800 (738)<br />
+            Depart: 06:25 AM Friday, 27 July 2018<br />
+            Arrive: 07:25 AM Friday, 27 July 2018<br />
+            Duration: 1h 0m</p>
+            <p class="font-weight-bold">Total trip time: 1h 0m</p>
+          </div>
+        </div>
+      </div>
+    <% end %>
+
+  </div>
+  <div class="col-md-4 bg-dark text-white py-3">
+    <span class="">FROM</span><br />
+    <span class="text-uppercase">MYR</span><br />
+    <span>226.00</span><br />
+    Include taxes and fees<br />
+    <%= form_tag '/flights/review' do %>
+      <%= submit_tag 'Select', class: 'btn btn-outline-light' %>
+    <% end %>
+  </div>
+</div>
+<% end %>
